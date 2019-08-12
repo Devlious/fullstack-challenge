@@ -20,4 +20,4 @@ export const locationAvailability = (open_time, close_time) => {
  * @param {String} time time to be formated
  * @returns {String}
  */
-export const formatTime = (time) => (time.length != 5) ? moment(time).format("HH:mm a") : moment(time, "HH:mm").format("HH:mm a")
+export const formatTime = (time) => (time.length != 5) ? moment(time).format("hh:mm a") : moment(time, "hh:mm").format("hh:mm a")
