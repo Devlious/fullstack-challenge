@@ -7,6 +7,7 @@ import config from '../config/index'
 import axios from 'axios'
 import moment from 'moment'
 import styled from 'styled-components'
+import LocationsSideBar from '../components/sidebar/SideBar'
 
 const PopupStyle = styled.div`
   background: white;
@@ -199,9 +200,12 @@ class LiveMap extends React.Component {
   }
 
   render() {
-    const { center, zoom, location, isEditing, isAddingLocation } = this.state;
+    const { center, zoom, location, locations, isEditing, isAddingLocation } = this.state;
     return (
       <div>
+        {locations.length &&
+          <LocationsSideBar locations={ locations } />
+        }
         {isAddingLocation &&
           <AddLocationForm
             onSubmitForm={this.onSubmitNewLocation.bind(this)}
@@ -210,8 +214,9 @@ class LiveMap extends React.Component {
         }
         <Map
           containerStyle={{
+            margin: '0 25%',
             height: '98vh',
-            width: '100%'
+            width: '75%'
           }}
           style='mapbox://styles/mapbox/navigation-guidance-day-v2'
           center={center}

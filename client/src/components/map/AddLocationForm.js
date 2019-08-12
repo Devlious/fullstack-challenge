@@ -20,7 +20,7 @@ class AddLocationForm extends React.Component {
     } = this.props.addLocationValues
 
     return (
-      <form onSubmit={this.props.onSubmitForm}>
+      <form onSubmit={this.props.onSubmitForm} className="add-form">
         <Input
           labelText='Location name'
           value={location_name}
